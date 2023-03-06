@@ -1,7 +1,7 @@
-const contacts = require('./contacts');
+const validation = require('./validation');
 const auth = require('./auth');
 
 module.exports = {
-    contacts,
+    validation,
     auth,
 };

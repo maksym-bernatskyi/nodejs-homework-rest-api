@@ -8,7 +8,8 @@ const addContact = async (req, res, next) => {
         if (error) {
             throw createError(404, error.message);
         }
-        const result = await Contact.create(req.body);
+        const { id: owner } = req.user;
+        const result = await Contact.create({ ...req.body, owner });
         res.status(201).json({
             status: "success",
             code: 201,
