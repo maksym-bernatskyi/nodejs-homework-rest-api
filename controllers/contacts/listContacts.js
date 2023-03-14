@@ -6,7 +6,7 @@ const listContacts = async (req, res, next) => {
     const skip = (page - 1) * limit;
 
     try {
-        const result = await Contact.find({ owner }, "-createAt -updateAt", {
+        const result = await Contact.find({ owner }, "-createdAt -updatedAt", {
             skip,
             limit: Number(limit),
         }).populate("owner", "_id email");
